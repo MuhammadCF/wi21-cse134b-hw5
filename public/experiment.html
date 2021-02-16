@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>134b experiment</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html"> <em>back to home</em></a>
+    </nav>
+    <h1>This is for experiments with tags</h1>
+
+    <div>
+        <audio controls>
+            <source src="audio/134b_audio-sample.m4a" type="audio/mp4">
+        </audio>
+    </div>
+
+    <div>
+        <video width="300" height="240" controls>
+            <source src="video/134b_sample-video.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <div>
+        <canvas id="samplecanvas" width="500" height="750">
+            your browser does not support canvas
+        </canvas>
+
+        <script>
+            var canv = document.getElementById("samplecanvas");
+            canv = canv.getContext("2d");
+            canv.moveTo(0,750);
+            canv.lineTo(500,0);
+            canv.stroke();
+        </script>
+    </div>
+    <br>
+    <div>
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" stroke="red" stroke-width="7" fill="blue" />
+        </svg>
+
+    </div>
+
+
+
+    <div>
+        <figure>
+            <img src="image/Fennec_Fox.jpg" alt="image">
+            <figcaption>
+                Fig. Fennec Fox
+            </figcaption>
+        </figure>
+    </div>
+
+    <div>
+        <pre>
+             ^...^
+            <_* *_>   
+              \_/
+        </pre>
+    </div>
+
+    <div>
+        <iframe src="https://ucsd.edu" frameborder="5px" height="400" width="600"></iframe>
+    </div>
+
+    <br><br>
+    <div>
+        <picture>
+            <source srcset="image/Arctic-fox3.jpg">
+            <img src="image/Fennec_Fox.jpg">
+        </picture>
+    </div>
+</body>
+</html>

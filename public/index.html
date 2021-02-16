@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>134b home page</title>
+    <link rel="stylesheet" href="styling.css">
+
+    <style>
+        body {
+            background-color: azure;
+        }
+    </style>
+
+</head>
+<body>
+
+    
+
+    <header>
+        <script>
+            console.log("Placeholder")
+        </script>
+
+        <h3>Portofolio structure</h3>
+
+        <aside>
+            <h2>
+                for graders, all the tags are spread
+                across profile and experiment page, the
+                notes page is still empty.
+            </h2>
+        </aside>
+
+    </header>
+
+    <main>
+        <section>
+            <h2>You have three options: </h2>
+        </section>
+        <section>
+            <h2>you can:</h2>
+            <br>
+            <a href="profile.html">Go to the profile page</a>
+            <br>
+            <a href="notes.html">Go to the notes</a>
+            <br>
+            <a href="experiment.html">Go to the experiment site, <b>Click
+                here if you want to test out tags
+            </b>
+            </a>
+
+        </section>
+        <hr>
+        <aside>This is a <strong>placeholder</strong> for the contact me feature</aside>
+
+        <form action="/action_page.php">
+            <fieldset>
+                <legend>Contact me form:</legend>
+                <label for="fname">Name:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <Label for="urgent">What is your urgency: </Label>
+                <input list="urgencies" name="urgency" id="urgent"><br><br>
+                <datalist id="urgencies">
+                    <option value="urgent">urgent</option>
+                    <option value="semi-urgent">semi urgent</option>
+                    <option value="non-urgent">non urgent</option>
+                </datalist>
+                <select name="messagetype" id="contactmetype">
+                    <optgroup label="Professional">
+                        <option value="complaint">Complaints</option>
+                        <option value="contribution-solicitation">Contribution</option>
+                        <option value="donation-offer">Donation</option>
+                    </optgroup>
+                    <optgroup label="Casual Contact">
+                        <option value="friend">Friend Invitation</option>
+                        <option value="misc">other</option>
+                    </optgroup>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+                <textarea name="Your message" id="contactme" cols="30" rows="10">
+                    insert your message here
+                </textarea>
+            </fieldset>
+        </form>
+    </main>
+
+    
+</body>
+</html>

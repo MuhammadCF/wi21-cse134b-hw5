@@ -1,0 +1,175 @@
+#portrait picture * {
+  width: 300px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes hue {
+  from {
+    background-color: chartreuse;
+  }
+  to {
+    background-color: aqua;
+  }
+}
+
+#transition {
+  width: 100px;
+  height: 100px;
+  background-color: chartreuse;
+  animation-name: hue;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform: rotate(45deg);
+  transition: width 2s ease-in 1s, height 4s ease-out 1s;
+}
+
+#transition:hover {
+  width: 300px;
+  height: 500px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem 1rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+#bio {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#portrait {
+  grid-column: 2 / 3;
+  grid-row: 1 /2;
+}
+
+#education {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+
+#skills {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+}
+
+body {
+  background-color: antiquewhite;
+  font-family: 'Optimus Princeps', monospace;
+}
+
+#prof {
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'Optimus Princeps';
+  font-style: normal;
+  src: local('Optimus Princeps Regular'), local('OptimusPrinceps-Regular'),
+    url('./fonts/OptimusPrinceps.ttf') format('truetype');
+}
+
+nav {
+  box-sizing: border-box;
+
+  height: 40px;
+  width: 100%;
+  background-color: rgb(86, 56, 46);
+  position: relative;
+}
+
+#homebutton {
+  text-decoration: none;
+  color: white;
+  line-height: 40px;
+  padding: 13px 10px 13px 10px;
+  font-size: 1.5rem;
+}
+
+nav .nav-header {
+  display: inline-block;
+}
+
+nav .nav-btn {
+  display: none;
+}
+
+nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 16px;
+}
+
+nav > .nav-links > a {
+  display: inline-block;
+  padding: 12px 9px 12px 9px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav > #nav-check {
+  display: none;
+}
+
+/*ATTENTION: for the burger below, I took a snippet from codepen and reorient it to
+fit my purpose, I don't know if this is an AIP violation, but I am running
+out of time so feel free to take points off if it is.*/
+@media (max-width: 500px) {
+  nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  nav > .nav-btn > label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 15px;
+  }
+  nav > .nav-btn > label:hover,
+  nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.5s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}

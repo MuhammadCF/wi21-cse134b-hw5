@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styling.css">
+    <title>134b profile page</title>
+</head>
+<body>
+
+    <header>
+            
+        <nav>
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+                
+                <a href="index.html" id="homebutton"> <em>back to home -></em></a>
+            </div>
+
+
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+
+            <div class="nav-links">
+                <a href="notes.html">Notes</a>
+                <a href="experiment.html">Experiment</a>
+            </div>
+                
+        </nav>
+        <h1 id="prof">My Profile</h1>
+        <details>
+            <summary> Readme: </summary>
+            <p>This is still a <i>rough draft</i>, which
+                function is primarily to finish
+                the <span>hw3</span>, expect everything
+                to be polished later. NOTE:
+                I don't have a portrait of myself at the moment.
+                Please tolerate this picture for now.
+            </p>
+        </details>
+    </header>
+
+    <main>
+        <!--
+        <template>
+
+            <h2>I am planning to use this template to store
+                hidden tags to be used once the page
+                is advanced enough
+            </h2>
+            for example we can have another contact me functionality
+            here.
+
+
+        </template>
+        <button>Click here to show the hidden element</button>
+        -->
+        <hr>
+        <section>
+            <div class="container">
+            <div class="bio">
+                <h2>Bio: </h2>
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <caption><b><em>basic information</em></b></caption>
+                        <tr>
+                            <th>Identity type</th>
+                            <th>Identity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full Name</td>
+                            <td>Muhammad Fajar</td>
+                        </tr>
+                        <tr>
+                            <td>Occupation</td>
+                            <td>Student</td>
+                        </tr>
+                        <tr>
+                            <td>Email address</td>
+                            <td>mfajar@ucsd.edu</td>
+                        </tr>
+                        <tr>
+                            <td>GitHub</td>
+                            <td><a href="https://github.com/MuhammadCF">MuhammadCF</a></td>
+                        </tr>
+                        <tr>
+                            <td>Birthdate and age</td>
+                            <td>06/27/2000 | 20 years old</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+
+            <div id="portrait" >
+                <picture>
+                    <!--source: https://www.google.com/imgres?imgurl=https%3A%2F%2Fnews.janegoodall.org%2Fwp-content%2Fuploads%2F2017%2F03%2Fgrizzly-bear-portrait.jpg&imgrefurl=https%3A%2F%2Fnews.janegoodall.org%2F2017%2F03%2F06%2Fthe-greatness-of-grizzly-bears%2Fgrizzly-bear-portrait%2F&tbnid=vhxQUMkENP8StM&vet=12ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygCegUIARDpAQ..i&docid=-9iZ9Al8tqbc9M&w=1920&h=1280&q=bear%20portrait&ved=2ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygCegUIARDpAQ-->
+                    <source media="(min-width: 800px)" srcset="./image/bearbig.jpg">
+
+                    <!--source: https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.fineartamerica.com%2Fimages-medium-large%2Fgrizzly-bear-portrait-jim-guy.jpg&imgrefurl=https%3A%2F%2Fpixels.com%2Ffeatured%2Fgrizzly-bear-portrait-jim-guy.html&tbnid=qZ3hghc-Zsw47M&vet=12ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygBegUIARDmAQ..i&docid=W64QFjY1a8sXRM&w=720&h=900&q=bear%20portrait&ved=2ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygBegUIARDmAQ-->
+                    <source media="(min-width: 400px)" srcset="./image/bearbig.jpg">
+
+                    <!--source: https://www.google.com/imgres?imgurl=https%3A%2F%2Fsecure.img1-fg.wfcdn.com%2Fim%2F84790198%2Fresize-h600-w600%255Ecompr-r85%2F5655%2F56556758%2F%2527Bear%2BPortrait%2527%2BAcrylic%2BPainting%2BPrint%2Bon%2BWrapped%2BCanvas.jpg&imgrefurl=https%3A%2F%2Fwww.wayfair.com%2Fdecor-pillows%2Fpdp%2Ftrademark-fine-art-bear-portrait-acrylic-painting-print-on-wrapped-canvas-hytb6778.html&tbnid=amdvJGeJYo8BRM&vet=12ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygAegUIARDjAQ..i&docid=WImBvdcmdn15bM&w=600&h=600&q=bear%20portrait&ved=2ahUKEwih4pfs0-3uAhULNK0KHYaACM8QMygAegUIARDjAQ-->    
+                    <source media="(max-width: 399px)" srcset="./image/bearsmall.jpg">
+                    <img src="./image/bearsmall.jpg" alt="image not available">
+                </picture>
+            </div>
+
+            <br>
+            <div class="education">
+
+                <h3>Education</h3>
+
+                <code>console.log(odered from the most recent)</code>
+                <br>
+                <ol>
+                    <li>
+                        Bachelor's Degree at UCSD
+                    </li>
+                    <li>
+                        Associate's Degree at Shoreline Community College
+                    </li>
+                </ol>
+
+
+            </div>
+
+            <br>
+            <div class="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>
+                        Front-end
+                        <ol>
+                            <li>React</li>
+                            <li>Vanilla HTML, JS, CSS</li>
+                            <li>Redux</li>
+                            <li>Etc...</li>
+
+                        </ol>
+                    </li>
+
+                    <li>
+                        Back-end
+                        <ol>
+                            <li>Django-Rest Framework</li>
+                            <li>Node JS</li>
+                            <li>PostgreSQL</li>
+                            <li>Etc...</li>
+
+                        </ol>
+                    </li>
+
+                    <li>
+                        Hardware-design
+                        <ol>
+                            <li>System Verilog</li>
+                            <li>Model Sim</li>
+                            <li>Quartus Synthesis</li>
+                            <li>Basic Computer Architecture</li>
+
+                        </ol>
+                    </li>
+
+                </ul>
+            </div>
+        
+            </div>
+
+        </section>
+
+        <div>
+            <p>animation, transition, transformation demonstration: </p>
+            
+            <div id="transition">
+
+            </div>
+        </div>
+
+        <br>
+
+
+    </main>
+
+    <footer></footer>
+    
+</body>
+</html>
