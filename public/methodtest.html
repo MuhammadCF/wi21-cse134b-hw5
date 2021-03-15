@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cse 134b hw5</title>
+</head>
+<body>
+
+    <div id="methodSelection">
+        <button>Get</button>
+        <button>Delete</button>
+        <button>Post</button>
+        <button>Put</button>
+    </div>
+
+    <p id="instruction"></p>
+    <form id="articleForm">
+
+        <div id="idInput">
+            <label for="articleID">ID: </label>
+            <input
+            type="number"
+            name="articleID"
+            id="articleID"
+            min="0"
+            />
+        </div>
+        
+        <div id="nameInput">
+            <label for="articleName">Article Name: </label>
+            <input type="text" name="articleName" id="articleName" />
+        </div>
+
+        <div id="bodyInput">
+            <label for="articleBody">Article Body: </label>
+            <input
+                type="text"
+                name="articleBody"
+                id="articleBody"
+            />
+        </div>
+
+        <div id="dateInput">
+            <label for="articleDate">Article Date: </label>
+            <input
+                type="date"
+                name="articleDate"
+                id="articleDate"
+                disabled
+            />
+        </div>
+
+        <div>
+            <button type="submit">Execute</button>
+        </div>
+
+    </form>
+
+    <hr />
+
+    <div>
+        <output id="response"></output>
+    </div>
+
+
+    <script type="module">
+
+    
+        const url = "https://httpbin.org";
+        let idNum = 0;
+
+        function fetchArticle(id) {
+        
+            let endpoint = url + '/' + 'get';
+            let output = document.getElementById('response');
+
+            fetch(endpoint).then((response) => 
+            response.json()).then((data) => {
+
+            output.textContent = JSON.stringify(data.data);
+            }).catch((err) =>{
+            output.textContent = err;
+            });
+        }
+
+        function createArticle(name, body, date) {
+        
+            let endpoint = url + '/' + 'post';
+            let output = document.getElementById('response');
+            let content = {'id': idNum, 'article_name': name, 'article_body': body, 'date': date};
+            idNum++;
+            
+
+            fetch(endpoint, 
+            {method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(content)}).then((response) => 
+                response.json()).then((data) => {
+
+                output.textContent = JSON.stringify(data.data);
+                }).catch((err) =>{
+                output.textContent = err;
+                });
+
+
+
+        }
+
+        function updateArticle(id, name, body, date) {
+        
+            let endpoint = url + '/' + 'put/' + id;
+            let output = document.getElementById('response');
+            let content = {'id': idNum, 'article_name': name, 'article_body': body, 'date': date};
+                idNum++;
+                
+            fetch(endpoint, 
+            {method: 'PUT',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify(content)}).then((response) => 
+                response.json()).then((data) => {
+
+                output.textContent = JSON.stringify(data);
+                }).catch((err) =>{
+                output.textContent = err;
+                });
+
+
+        }
+
+        
+        function deleteArticle(id) {
+
+            let endpoint = url + '/' + 'delete/' + id;
+            let output = document.getElementById('response');
+
+            fetch(endpoint, {method: 'DELETE'}).then((response) => 
+                response.json()).then((data) => {
+
+                output.textContent = JSON.stringify(data);
+                }).catch((err) =>{
+                output.textContent = err;
+                });
+
+
+
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+
+            let currentMethod = "";
+
+            let methodSelection = document.getElementById("methodSelection");
+            let output = document.getElementById("response");
+            let instruction = document.getElementById("instruction");
+
+            
+            let form = document.getElementById("articleForm");
+
+            methodSelection.addEventListener("click", event => {
+
+                let name = document.getElementById("nameInput");
+                let id = document.getElementById("idInput");
+                let body = document.getElementById("bodyInput");
+                let date = document.getElementById("dateInput");
+
+                let articleDate = document.getElementById("articleDate");
+                let newDate = new Date();
+                articleDate.value = newDate.toISOString().split('T')[0];
+
+
+                let methodText = event.target.textContent;
+                currentMethod = methodText;
+
+                switch (methodText) {
+                    case "Get":
+                        output.textContent = "";
+                        instruction.textContent = "insert the ID you want to get: ";
+                        id.style.display = "block";
+                        name.style.display = "none";
+                        body.style.display = "none";
+                        date.style.display = "none";
+                    break;
+                    case "Delete":
+                        output.textContent = "";
+                        instruction.textContent = "insert the ID you want to remove: ";
+                        id.style.display = "block";
+                        name.style.display = "none";
+                        body.style.display = "none";
+                        date.style.display = "none";
+                        break;
+                    case "Post":
+                        output.textContent = "";
+                        instruction.textContent = "insert new article: ";
+                        id.style.display = "none";
+                        name.style.display = "block";
+                        body.style.display = "block";
+                        date.style.display = "block";                        
+                        break;
+                    case "Put":
+                        output.textContent = "";
+                        instruction.textContent = "insert the ID of the article you want to update: ";
+                        id.style.display = "block";
+                        name.style.display = "block";
+                        body.style.display = "block";
+                        date.style.display = "block";                        
+                        break;
+                
+                    default:
+                        window.alert("error in the method selection")
+                        break;
+                }
+            });
+
+            form.addEventListener("submit", event => {
+
+                event.preventDefault();
+
+                let name = document.querySelector("#nameInput input");
+                let id = document.querySelector("#idInput input");
+                let body = document.querySelector('#bodyInput input')
+                let date = document.querySelector("#dateInput input");
+
+
+                switch (currentMethod) {
+                    case "Get":
+                        fetchArticle(id.value)
+                        break;
+                    case "Delete":
+                        deleteArticle(id.value);
+                        break;
+                    case "Post":
+                        createArticle(name.value, body.value, date.value);
+                        break;
+                    case "Put":
+                        updateArticle(id.value, name.value, body.value, date.value);
+                        break;
+                
+                    default:
+                        break;
+                }
+
+                name.value = "";
+                body.value = "";
+
+                let newDate = new Date();
+                date.value = newDate.toISOString().split('T')[0];
+                id.value = "";
+
+            })
+        })
+    </script>
+</body>
+</html>
